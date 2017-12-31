@@ -1,12 +1,93 @@
+'''
+
+
+
+
+
+$$\   $$\                                        $$\                                   $$$$$$\                                          
+$$ | $$  |                                       $$ |                                 $$  __$$\                                         
+$$ |$$  / $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$$\ $$$$$$$\   $$$$$$\  $$$$$$$\         $$ /  \__| $$$$$$\ $$\    $$\  $$$$$$\   $$$$$$\  
+$$$$$  / $$  __$$\ $$  __$$\  \____$$\ $$  _____|$$  __$$\  \____$$\ $$  __$$\ $$$$$$\\$$$$$$\   \____$$\\$$\  $$  |$$  __$$\ $$  __$$\ 
+$$  $$<  $$ /  $$ |$$ |  $$ | $$$$$$$ |$$ /      $$ |  $$ | $$$$$$$ |$$ |  $$ |\______|\____$$\  $$$$$$$ |\$$\$$  / $$$$$$$$ |$$ |  \__|
+$$ |\$$\ $$ |  $$ |$$ |  $$ |$$  __$$ |$$ |      $$ |  $$ |$$  __$$ |$$ |  $$ |       $$\   $$ |$$  __$$ | \$$$  /  $$   ____|$$ |      
+$$ | \$$\\$$$$$$  |$$ |  $$ |\$$$$$$$ |\$$$$$$$\ $$ |  $$ |\$$$$$$$ |$$ |  $$ |       \$$$$$$  |\$$$$$$$ |  \$  /   \$$$$$$$\ $$ |      
+\__|  \__|\______/ \__|  \__| \_______| \_______|\__|  \__| \_______|\__|  \__|        \______/  \_______|   \_/     \_______|\__|      
+                                                                                                                                        
+                                                                                                                                        
+                                                                                                                                        
+
+
+
+
+
+__Author__: 'Momoblydblk'
+__InitialRelease__: 'https://github.com/momoblydblk/konachan-saver'
+'''
+'''
+Todos:
+# Fix import pip
+
+
+'''
+
 import os
+import pip
+import platform
 
-import requests
-import configparser
 
-import avalon_framework as avalon
+global windows
+windows = True
+def systemPrint(msg):
+    if windows:
+        print(msg)
+    else:
+        avalon_framework
 
 def main():
     init()
     
+def init():
+    print('''
+        
 
-avalon.gets()
+$$\   $$\                                        $$\                                   $$$$$$\                                          
+$$ | $$  |                                       $$ |                                 $$  __$$\                                         
+$$ |$$  / $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$$\ $$$$$$$\   $$$$$$\  $$$$$$$\         $$ /  \__| $$$$$$\ $$\    $$\  $$$$$$\   $$$$$$\  
+$$$$$  / $$  __$$\ $$  __$$\  \____$$\ $$  _____|$$  __$$\  \____$$\ $$  __$$\ $$$$$$\\$$$$$$\   \____$$\\$$\  $$  |$$  __$$\ $$  __$$\ 
+$$  $$<  $$ /  $$ |$$ |  $$ | $$$$$$$ |$$ /      $$ |  $$ | $$$$$$$ |$$ |  $$ |\______|\____$$\  $$$$$$$ |\$$\$$  / $$$$$$$$ |$$ |  \__|
+$$ |\$$\ $$ |  $$ |$$ |  $$ |$$  __$$ |$$ |      $$ |  $$ |$$  __$$ |$$ |  $$ |       $$\   $$ |$$  __$$ | \$$$  /  $$   ____|$$ |      
+$$ | \$$\\$$$$$$  |$$ |  $$ |\$$$$$$$ |\$$$$$$$\ $$ |  $$ |\$$$$$$$ |$$ |  $$ |       \$$$$$$  |\$$$$$$$ |  \$  /   \$$$$$$$\ $$ |      
+\__|  \__|\______/ \__|  \__| \_______| \_______|\__|  \__| \_______|\__|  \__|        \______/  \_______|   \_/     \_______|\__|      
+                                                                                                                                        
+                                                                                                                                        
+                                                                                                                                    
+    ''')
+    print("Please wait for Konachan-Saver imports necessary modules.")
+    
+    #Try to import the necessary parts, or install them.
+    libs = ['requests','configparser','avalon_framework']
+    if platform.system().lower() == "windows":
+        libs.pop(2)
+    else:
+        windows = False
+
+    def import_m(p):
+        try:
+            import p 
+        except:
+            pip.main(['install',p])
+            import p
+    for i in libs:
+        import_m(i)
+        print("Done importing %s." % i)
+    
+    systemPrint("\n\n\nDone importing necessary parts.")
+    
+
+
+
+
+#a = avalon.gets("aaa")
+
+if __name__ == "__main__":
+    main()
