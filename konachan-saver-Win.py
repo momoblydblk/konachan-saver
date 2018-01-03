@@ -36,8 +36,6 @@ import pip
 import platform
 import importlib
 
-'''going to be deleted'''
-import bs4, requests, urllib
 
 
 global safe
@@ -46,6 +44,7 @@ global safe
 def main():
     init()
     work()
+    
 def init():
     print('''
 
@@ -124,15 +123,11 @@ def download(url, safe):
         filePath = '.\Download\\NSFW\\' + filename
         print('Find your file here: %s' % filePath)
     urllib.request.urlretrieve(url,filePath,cbk)
-    
-    
-    
-    if __name__ == "__main__":
+      
+        if __name__ == "__main__":
         work()
     else:
         exit()
-
-
 
 if __name__ == "__main__":
     main()
