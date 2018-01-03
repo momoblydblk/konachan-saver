@@ -22,6 +22,7 @@ $$ | \$$\\$$$$$$  |$$ |  $$ |\$$$$$$$ |\$$$$$$$\ $$ |  $$ |\$$$$$$$ |$$ |  $$ | 
 
 __Author__: 'Momoblydblk'
 __InitialRelease__: 'https://github.com/momoblydblk/konachan-saver'
+__Compatibility__: 'Python3'
 '''
 '''
 Todos:
@@ -96,6 +97,8 @@ def analyze(url):
     element = soup.find_all(id="highres")
     tag = element[0]
     photoURL = tag["href"]
+    if photoURL[0] == '/':
+        photoURL = 'https:' + photoURL
     elementSafe = soup.find_all(class_="vote-desc")[0]
     elementSafe = elementSafe.parent
     safe = elementSafe.get_text()
