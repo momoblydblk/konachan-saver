@@ -1,4 +1,3 @@
-if platform.system().lower() == "windows":
-        libs.pop(1)
-    else:
-        windows = False
+from konachan-saver-Win import init
+from konachan-saver-Win import work
+
