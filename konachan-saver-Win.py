@@ -32,6 +32,9 @@ Todos:
 '''
 
 import os
+import sys
+import math
+import time
 import pip
 import platform
 import importlib
@@ -115,7 +118,14 @@ def download(url, safe):
         per = 100.0 * a * b / c 
         if per > 100: 
             per = 100 
-        print ('%.2f%%' % per)
+        #print ('%.2f%%' % per)
+        per = math.floor(per)
+        hunminper = 100 - per
+        sys.stdout.write("\r{0}".format("="*per) + "{0}".format("-"*hunminper))
+        #sys.stdout.write()
+        sys.stdout.write("          " + str(per) + "%")
+        sys.stdout.flush()
+        time.sleep(0.5)
     if safe:
         filePath = '.\Download\safe\\' + filename
         print('Find your file here: %s' % filePath)
@@ -124,7 +134,8 @@ def download(url, safe):
         print('Find your file here: %s' % filePath)
     urllib.request.urlretrieve(url,filePath,cbk)
       
-        if __name__ == "__main__":
+    if __name__ == "__main__":
+        print("\n")
         work()
     else:
         exit()
